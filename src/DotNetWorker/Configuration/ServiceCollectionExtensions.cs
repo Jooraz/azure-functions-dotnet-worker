@@ -54,6 +54,8 @@ namespace Microsoft.Extensions.DependencyInjection
 
                 GrpcChannel grpcChannel = GrpcChannel.ForAddress($"http://{arguments.Host}:{arguments.Port}", new GrpcChannelOptions()
                 {
+                    MaxReceiveMessageSize = arguments.GrpcMaxMessageLength,
+                    MaxSendMessageSize = arguments.GrpcMaxMessageLength,
                     Credentials = ChannelCredentials.Insecure
                 });
 
